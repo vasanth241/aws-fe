@@ -1,0 +1,22 @@
+<input (change)="onImagePicked($event)" placeholder="Upload Image" type="file" />
+<!-- <button (click)="onImageUpload()">Upload Image</button> -->
+
+<button class="btn btn-primary" type="button" [disabled]="isUploading">
+<span (click)="onImageUpload()" *ngIf="!isUploading">Upload</span>
+
+<span *ngIf="isUploading">
+<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+Uploading...
+</span>
+
+</button>
+
+<div *ngIf="imageUrl">
+  Preview Image from AWS
+  <br />
+  <img width="200px" src="https://vasi-aws-training.s3.amazonaws.com/{{ imageUrl }}" />
+</div>
+
+<div>
+<a routerLink="/" routerLinkActive="active">Home</a>
+</div>
